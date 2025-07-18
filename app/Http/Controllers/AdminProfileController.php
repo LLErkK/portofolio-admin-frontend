@@ -20,6 +20,8 @@ class AdminProfileController extends Controller
         if($response->successful()){
             $profile = $response['data'];
             return view('admin.profile.edit', compact('profile'));
+        }else{
+            return view('admin.profile.edit');
         }
     }
 

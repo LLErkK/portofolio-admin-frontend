@@ -24,6 +24,8 @@ Route::get('/', function () {
  */
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
+Route::get('admin/register',[AdminAuthController::class,'showRegister'])->name('admin.register');
+Route::post('/admin/register',[AdminAuthController::class,'register'])->name('admin.register.submit');
 
 /**
  * Route Group Admin (hanya bisa diakses jika login/admin_token ada)

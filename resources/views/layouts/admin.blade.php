@@ -39,6 +39,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.education.index')}}">Riwayat pendidikan</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.certificate.index')}}">Sertifikat</a>
+                    </li>
                     <!-- Tambah menu lainnya di sini -->
                 </ul>
 

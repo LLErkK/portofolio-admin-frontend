@@ -50,6 +50,27 @@ class AdminAuthController extends Controller
     return redirect()->back()->with('error', 'Login gagal. Periksa username dan password.');
 }
 
+    public function showRegister()
+    {
+        return view('auth.register');
+    }
+
+    public function register(Request $request)
+    {
+        
+        $response = Http::post(env('API_BASE_URL') . '/api/users/register', [
+        'username' => $request->username,
+        'password' => $request->password,
+        'name'=>$request->name
+    ]);
+    
+    if($response->successful()){
+        return view('auth.login');
+        
+    }
+    return view('auth.register');
+    }
+
 
     public function logout(Request $request)
 {
