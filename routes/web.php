@@ -1,4 +1,6 @@
 <?php
+use App\Http\Controllers\AdminCertificateController;
+use App\Http\Controllers\AdminEducationController;
 use App\Http\Controllers\AdminExperienceController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminProjectController;
@@ -47,8 +49,21 @@ Route::middleware(AdminAuthMiddleware::class)->group(function () {
     Route::post('/admin/experience',[AdminExperienceController::class,'store'])->name('admin.experience.store');
     Route::get('/admin/experience/{id}',[AdminExperienceController::class,'edit'])->name('admin.experience.edit');
     Route::put('/admin/experience/{id}',[AdminExperienceController::class,'update'])->name('admin.experience.update');
-    Route::delete('/admin/experience/{id}', [AdminExperienceController::class, 'destroy'])->name('admin.experience.destroy'); 
+    Route::delete('/admin/experience/{id}', [AdminExperienceController::class, 'destroy'])->name('admin.experience.destroy');
     
+    //education
+    Route::get('/admin/education',[AdminEducationController::class,'get'])->name('admin.education.index');
+    Route::get('/admin/education/{id}',[AdminEducationController::class,'edit'])->name('admin.education.edit');
+    Route::post('/admin/education',[AdminEducationController::class,'store'])->name('admin.education.store');
+    Route::patch('/admin/education/{id}',[AdminEducationController::class,'update'])->name('admin.education.update');
+    Route::delete('/admin/education/{id}',[AdminEducationController::class,'destroy'])->name('admin.education.destroy');
+
+    //certificate
+    Route::get('/admin/certificate',[AdminCertificateController::class,'get'])->name('admin.certificate.index');
+    Route::get('/admin/certificate/{id}',[AdminCertificateController::class,'edit'])->name('admin.certificate.edit');
+    Route::post('/admin/certificate',[AdminCertificateController::class,'store'])->name('admin.certificate.store');
+    Route::put('/admin/certificate/{id}',[AdminCertificateController::class,'update'])->name('admin.certificate.update');
+    Route::delete('/admin/certificate/{id}',[AdminCertificateController::class,'destroy'])->name('admin.certificate.destroy');
     
 });
 Route::fallback(function () {
