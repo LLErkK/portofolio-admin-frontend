@@ -53,7 +53,7 @@ public function store(Request $request)
     \Log::info('User dari request:', ['user' => $request->user()]);
     $token = Session::get('admin_token');
     $formData = $request->except('images');
-    dd($request);
+    
     $http = Http::withHeaders([
         'Authorization' => $token,
     ]);
